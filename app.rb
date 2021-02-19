@@ -3,7 +3,11 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Chitter'
+    redirect '/feed'
+  end
+
+  get '/feed' do
+    erb :feed
   end
 
 end
