@@ -5,6 +5,7 @@ gem 'pg'
 
 group :test do
   gem 'capybara'
+  gem 'launchy'
   gem 'rspec'
   gem 'rubocop', '0.79.0'
   gem 'shotgun'

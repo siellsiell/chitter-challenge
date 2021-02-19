@@ -9,8 +9,15 @@
 </head>
 <body>
   <h1>Chitter</h1>
-  <ol>
-    <li>Peep 1</li>
-    <li>Peep 2</li>
-  </ol>
+  <div>
+    <form action="/post" method="post">
+      <textarea id="peep" name="peep" rows="2" cols="70"></textarea>
+      <button type="submit">Post</button>
+    </form>
+  </div>
+  <div>
+    <% peeps.each do |p| %>
+      <p><%= p %></p>
+    <% end %>
+  </div>
 </body>
