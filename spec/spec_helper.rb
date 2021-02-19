@@ -5,9 +5,15 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'rake'
 
 # TODO do i need this to force migrations?
-# ActiveRecord::Migration.maintain_test_schema!
+#ActiveRecord::Migration.maintain_test_schema!
+
+load File.join(File.dirname(__FILE__), '..', 'Rakefile')
+Rake::Task['db:drop'].invoke
+Rake::Task['db:create'].invoke
+Rake::Task['db:migrate'].invoke
 
 Capybara.app = Chitter
 

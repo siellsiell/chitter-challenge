@@ -1,10 +1,9 @@
 require 'models/peep'
+require "sinatra/activerecord"
 require 'sinatra/base'
 
-db_options = YAML.load(File.read('./config/database.yml'))
-ActiveRecord::Base.establish_connection(db_options[ENV['RACK_ENV']])
-
 class Chitter < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
 
   PEEPS = ["Peep 1", "Peep 2"]
 
