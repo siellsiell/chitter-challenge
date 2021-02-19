@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'sinatra', :github => 'sinatra/sinatra'
 gem 'pg'
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'rake' # to apply migrations
 
 group :test do
   gem 'capybara'

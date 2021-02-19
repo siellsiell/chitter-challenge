@@ -1,4 +1,8 @@
+require 'models/peep'
 require 'sinatra/base'
+
+db_options = YAML.load(File.read('./config/database.yml'))
+ActiveRecord::Base.establish_connection(db_options[ENV['RACK_ENV']])
 
 class Chitter < Sinatra::Base
 
@@ -9,13 +13,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    erb :feed, :locals => {
-      :peeps => PEEPS
-    }
+    @peeps = Peep.all
+    erb :feed
   end
 
   post '/post' do
-    PEEPS << params[:peep]
+    Peep.create(content: params[:peep])
     redirect '/feed'
   end
 

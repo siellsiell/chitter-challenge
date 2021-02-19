@@ -1,6 +1,5 @@
 $LOAD_PATH.unshift(File.expand_path("../lib", __FILE__))
 
-require 'sinatra'
+require 'sinatra/activerecord'
+require 'sinatra/activerecord/rake'
 require './app'
-
-run Chitter

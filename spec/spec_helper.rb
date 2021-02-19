@@ -6,6 +6,9 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 
+# TODO do i need this to force migrations?
+# ActiveRecord::Migration.maintain_test_schema!
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

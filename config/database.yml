@@ -1,0 +1,13 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+  username: simo
+
+development:
+  <<: *default
+  database: chitter_dev
+
+test:
+  <<: *default
+  database: chitter_test
